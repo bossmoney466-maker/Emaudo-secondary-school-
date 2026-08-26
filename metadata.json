@@ -1,0 +1,6 @@
+{
+  "name": "Emaudo Secondary School",
+  "description": "Official website for Emaudo Secondary School, Ekpoma, Edo State with instant WhatsApp and direct phone contact channels.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
