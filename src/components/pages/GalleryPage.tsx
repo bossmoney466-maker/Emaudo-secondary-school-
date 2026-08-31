@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   AlertCircle, 
   ChevronRight, 
@@ -12,11 +12,39 @@ import {
   X 
 } from 'lucide-react';
 import { GALLERY_ITEMS, SCHOOL_INFO } from '../../constants/schoolData';
+import { supabase, isSupabaseConfigured, supabaseService } from '../../lib/supabase';
 import { GalleryPhoto } from '../../types';
 
 export const GalleryPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activePhoto, setActivePhoto] = useState<GalleryPhoto | null>(null);
+  const [photosList, setPhotosList] = useState<GalleryPhoto[]>(GALLERY_ITEMS);
+
+  useEffect(() => {
+    async function loadGallery() {
+      if (isSupabaseConfigured && supabase) {
+        try {
+          const remote = await supabaseService.gallery.getAll();
+          if (remote && remote.length > 0) {
+            const mapped: GalleryPhoto[] = remote.map((r: any) => ({
+              id: r.id,
+              title: r.title,
+              category: r.category || 'School',
+              description: r.description,
+              imageUrl: r.image_url,
+              placeholderLabel: r.placeholder_label || r.title,
+              date: r.event_date,
+              source: r.source || 'Emaudo Digital Archives',
+            }));
+            setPhotosList([...mapped, ...GALLERY_ITEMS.filter(g => !mapped.some(m => m.title === g.title))]);
+          }
+        } catch (err) {
+          console.warn('Supabase gallery load notice:', err);
+        }
+      }
+    }
+    loadGallery();
+  }, []);
 
   const categories = [
     'All',
@@ -31,8 +59,8 @@ export const GalleryPage: React.FC = () => {
   ];
 
   const filteredPhotos = selectedCategory === 'All'
-    ? GALLERY_ITEMS
-    : GALLERY_ITEMS.filter((p) => p.category === selectedCategory);
+    ? photosList
+    : photosList.filter((p) => p.category.toLowerCase().includes(selectedCategory.toLowerCase()) || selectedCategory.toLowerCase().includes(p.category.toLowerCase()));
 
   return (
     <div className="space-y-12">

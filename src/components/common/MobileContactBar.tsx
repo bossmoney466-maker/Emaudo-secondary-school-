@@ -38,7 +38,7 @@ export const MobileContactBar: React.FC = () => {
             <span>Call School</span>
           </div>
           <span className="text-[11px] font-medium text-slate-300 mt-0.5 tracking-tight">
-            07018543531
+            +234 813 911 1765
           </span>
         </a>
       </div>

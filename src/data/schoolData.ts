@@ -319,3 +319,394 @@ export const MOCK_ADMISSION_APPLICATIONS: AdmissionApplication[] = [
   { id: 'app-2', applicantName: 'Miracle Iyamu', proposedClass: 'SSS 1 Science', gender: 'Female', parentName: 'Mrs. Stella Iyamu', parentPhone: '07066778899', parentWhatsApp: '+2347066778899', previousSchool: 'University Demonstration Sec School', status: 'Pending Review', appliedDate: '2024-09-08' },
   { id: 'app-3', applicantName: 'Godswill Momoh', proposedClass: 'JSS 1', gender: 'Male', parentName: 'Alhaji Momoh', parentPhone: '08133221100', parentWhatsApp: '+2348133221100', previousSchool: 'Emaudo Community Primary School', status: 'Approved', appliedDate: '2024-09-01' },
 ];
+
+// ============================================================================
+// ACADEMIC DEPARTMENTS DATA
+// ============================================================================
+export const ACADEMIC_DEPARTMENTS = [
+  {
+    id: 'dept-maths',
+    name: 'Mathematics Department',
+    headOfDepartment: 'Mr. A. Momodu (B.Sc. Ed. Mathematics)',
+    tagline: 'Fostering analytical logic, quantitative mastery, and competitive problem solving.',
+    description: 'The Mathematics Department delivers rigorous instruction from foundational arithmetic in Junior Secondary through advanced calculus and trigonometry in Senior Secondary. Students participate in annual Olympiads and inter-school quizzes.',
+    subjects: [
+      'General Mathematics (JSS 1 – SSS 3)',
+      'Further Mathematics (SSS 1 – SSS 3 Science)',
+      'Basic Mathematics & Quantitative Reasoning'
+    ],
+    features: [
+      'Algebra & Equations (Linear, Quadratic, Polynomials)',
+      'Geometry, Trigonometry & Mensuration',
+      'Statistics, Probability & Data Interpretation',
+      'Real-world Problem Solving & Quantitative Reasoning',
+      'National Mathematics Olympiad & MAN Quiz Training',
+      'Step-by-step WAEC & NECO Theory Past Paper Drills'
+    ],
+    competitions: [
+      'Mathematical Association of Nigeria (MAN) State Olympiad',
+      'Cowbellpedia Secondary School Mathematics TV Quiz',
+      'Edo State Secondary Schools Science & Maths Fair'
+    ],
+    labsOrFacilities: ['Mathematics Modeling Laboratory', 'CBT Mathematics Practice Centre']
+  },
+  {
+    id: 'dept-english',
+    name: 'English Language & Literary Studies',
+    headOfDepartment: 'Mrs. B. Okojie (B.A. Ed. English Literature)',
+    tagline: 'Cultivating articulate expression, critical reading, and powerful public speaking.',
+    description: 'Empowering students with command over spoken and written English, phonetics, essay composition, and African and World literature. The department anchors the school Debate Club and Literary Society.',
+    subjects: [
+      'English Studies / Language (JSS 1 – SSS 3)',
+      'Literature-in-English (SSS 1 – SSS 3 Arts)',
+      'Phonetics, Diction & Spoken English'
+    ],
+    features: [
+      'Grammar, Sentence Structure & Lexis',
+      'African & Non-African Prose, Poetry & Drama',
+      'Reading Comprehension & Summary Writing',
+      'Formal, Informal, Narrative & Argumentative Essays',
+      'Debate, Elocution, Oratory & Public Speaking',
+      'Spelling Bee & Literary Criticism Workshops'
+    ],
+    competitions: [
+      'Edo State Inter-School Debate Championship',
+      'National Library Board Essay Competition',
+      'Esan Literary & Cultural Arts Recitation Contest'
+    ],
+    labsOrFacilities: ['School Central Library & Reading Hall', 'Audio-Visual Language Clinic']
+  },
+  {
+    id: 'dept-science',
+    name: 'Science Department',
+    headOfDepartment: 'Mr. C. Ebosele (B.Sc. Industrial Chemistry, PGDE)',
+    tagline: 'Hands-on scientific inquiry powered by the ultra-modern Chevron laboratory complex.',
+    description: 'Our premier STEM division offering comprehensive theory and wet-lab practicals across Biology, Chemistry, Physics, and Agricultural Science. Students conduct weekly laboratory experiments preparing them for WAEC/NECO practical exams and engineering/medical careers.',
+    subjects: [
+      'Physics (SSS 1 – SSS 3)',
+      'Chemistry (SSS 1 – SSS 3)',
+      'Biology (SSS 1 – SSS 3)',
+      'Agricultural Science (JSS 1 – SSS 3)',
+      'Basic Science & Technology (JSS 1 – JSS 3)'
+    ],
+    features: [
+      'Ultra-Modern Science Laboratory Complex (Chevron 2017 Partnership)',
+      'Wet Lab Titration & Qualitative Chemical Analysis',
+      'Optics, Mechanics, Electricity & Magnetism Practicals',
+      'Biological Specimens, Microscopy & Dissection Demonstrations',
+      'Organic Agriculture & School Demonstration Farm',
+      'Annual Science Exhibition & Student Innovation Projects'
+    ],
+    competitions: [
+      'STAN (Science Teachers Association of Nigeria) Project Fair',
+      'NNPC National Science Competition',
+      'Edo State Young Scientists Exhibition'
+    ],
+    labsOrFacilities: [
+      'Ultra-Modern Science Laboratory Complex (Inaugurated 2017 with Chevron & Partners)',
+      'Dedicated Physics Lab with Optical Benches & Circuit Boards',
+      'Chemistry Lab with Fume Hoods & Reagents Storage',
+      'Biology Specimen Museum & Experimental Garden'
+    ]
+  },
+  {
+    id: 'dept-social',
+    name: 'Social Sciences & Humanities',
+    headOfDepartment: 'Mrs. F. Ighodalo (M.Ed. Social Studies)',
+    tagline: 'Understanding civic duty, socioeconomic systems, governance, and history.',
+    description: 'Fostering informed, ethical citizenship and global awareness through the study of Government, Economics, Geography, Civic Education, and Nigerian/Esan History.',
+    subjects: [
+      'Government (SSS 1 – SSS 3)',
+      'Economics (SSS 1 – SSS 3)',
+      'Geography (SSS 1 – SSS 3)',
+      'Civic Education (Core JSS 1 – SSS 3)',
+      'Social Studies & History (JSS 1 – JSS 3)'
+    ],
+    features: [
+      'Constitutional Law, Political Systems & Governance',
+      'Micro & Macro Economics, Fiscal Policy and Development',
+      'Physical Geography, Map Reading, Climatology & Fieldwork',
+      'Human Rights, National Ethics & Democratic Values',
+      'Esan, Nigerian & World History and Cultural Heritage'
+    ],
+    competitions: [
+      'National Civic Education Challenge',
+      'Central Bank of Nigeria (CBN) Financial Literacy Quiz',
+      'Junior Model United Nations (MUN) Simulations'
+    ],
+    labsOrFacilities: ['Geography Map Room & Meteorological Station', 'Civic Council Hall']
+  },
+  {
+    id: 'dept-commercial',
+    name: 'Commercial & Business Studies',
+    headOfDepartment: 'Mr. O. Imhansi (B.Sc. Accounting, ACA)',
+    tagline: 'Instilling entrepreneurial acumen, financial literacy, and commerce skills.',
+    description: 'Equipping aspiring accountants, bankers, business leaders, and entrepreneurs with practical bookkeeping, business law, marketing, and modern financial management.',
+    subjects: [
+      'Financial Accounting (SSS 1 – SSS 3)',
+      'Commerce (SSS 1 – SSS 3)',
+      'Business Studies (JSS 1 – JSS 3)',
+      'Bookkeeping & Store Management'
+    ],
+    features: [
+      'Double Entry Bookkeeping, Ledger Accounts & Balance Sheets',
+      'Trade, Banking, Insurance, Transport & Warehousing',
+      'Office Practice, Business Correspondence & Record Keeping',
+      'Personal Financial Literacy, Budgeting & Investment Basics',
+      'Young Entrepreneurs Business Plan Pitching Contests'
+    ],
+    competitions: [
+      'ICAN National Secondary School Accounting Challenge',
+      'Junior Achievement Nigeria (JAN) Business Competition'
+    ],
+    labsOrFacilities: ['Simulated Banking & Accounting Room', 'Business Resource Corner']
+  },
+  {
+    id: 'dept-tech',
+    name: 'Technology & Digital Skills Department',
+    headOfDepartment: 'Engr. S. Osas (B.Eng. Computer Engineering)',
+    tagline: 'Mastering modern computer literacy, coding fundamentals, and CBT exam preparation.',
+    description: 'Ensuring every Emaudo student gains digital competence. Covers computer hardware, office productivity software, internet safety, coding logic, and CBT examination readiness for JAMB UTME.',
+    subjects: [
+      'Computer Studies / ICT (JSS 1 – SSS 3)',
+      'Data Processing (SSS 1 – SSS 3)',
+      'Basic Technology & Technical Drawing (JSS 1 – JSS 3)'
+    ],
+    features: [
+      'Computer Fundamentals, Operating Systems & Hardware',
+      'Word Processing, Spreadsheets, Presentations & Databases',
+      'Introduction to Coding & Algorithmic Problem Solving (HTML/Python basics)',
+      'Cybersecurity Awareness & Responsible Digital Citizenship',
+      'JAMB/UTME Computer-Based Testing (CBT) Practice Simulations',
+      'Technical Drawing, Workshop Safety & Woodwork/Metalwork Basics'
+    ],
+    competitions: [
+      'Nigeria Computer Society (NCS) Young IT Brains',
+      'National Coding & Robotics School Fair'
+    ],
+    labsOrFacilities: ['Digital ICT Centre & CBT Computer Laboratory', 'Technical Drawing Workshop']
+  }
+];
+
+// ============================================================================
+// STUDENT CLUBS & EXTRACURRICULARS
+// ============================================================================
+export const SCHOOL_CLUBS = [
+  {
+    id: 'club-debate',
+    name: 'Debate & Literary Club',
+    category: 'Academic',
+    description: 'Sharpens critical thinking, persuasive argumentation, elocution, and stage confidence through weekly parliamentary and Oxford-style debates.',
+    coordinator: 'Mrs. B. Okojie',
+    meetingDay: 'Wednesdays',
+    meetingTime: '2:15 PM – 3:30 PM',
+    venue: 'School Auditorium',
+    activities: ['Weekly moot motions', 'Inter-class debate leagues', 'Spelling bee tournaments', 'Poetry recitation'],
+    achievements: ['1st Place in 2023 Esan Central Inter-School Debate Trophy']
+  },
+  {
+    id: 'club-science',
+    name: 'Young Scientists & JETS Club',
+    category: 'Academic',
+    description: 'Junior Engineers, Technicians & Scientists (JETS) club dedicated to hands-on experiments, robotics prototypes, renewable energy models, and science exhibitions.',
+    coordinator: 'Mr. C. Ebosele',
+    meetingDay: 'Thursdays',
+    meetingTime: '2:15 PM – 3:30 PM',
+    venue: 'Chevron Science Laboratory Complex',
+    activities: ['Chemical synthesis experiments', 'Simple electronic circuits', 'Solar oven projects', 'Water purification testing'],
+    achievements: ['Best STEM Project at the 2024 Edo Central Science Fair']
+  },
+  {
+    id: 'club-maths',
+    name: 'Mathematics & Chess Club',
+    category: 'Academic',
+    description: 'Fosters mathematical puzzle solving, mental math speed drills, Rubik’s cube mastery, and strategic chess tournaments.',
+    coordinator: 'Mr. A. Momodu',
+    meetingDay: 'Tuesdays',
+    meetingTime: '2:15 PM – 3:30 PM',
+    venue: 'Mathematics Lab / Room 104',
+    activities: ['Speed arithmetic contests', 'Logic puzzle challenges', 'Chess ladder tournament', 'Past Olympiad solution workshops'],
+    achievements: ['3 Top-10 qualifiers in State MAN Mathematics Olympiad']
+  },
+  {
+    id: 'club-press',
+    name: 'Press & Media Club',
+    category: 'Civic',
+    description: 'Trains student journalists, photojournalists, and broadcasters to produce the weekly school wall bulletin, assembly morning news, and term magazine.',
+    coordinator: 'Mr. P. Akhimien',
+    meetingDay: 'Mondays & Fridays',
+    meetingTime: '2:15 PM – 3:15 PM',
+    venue: 'Media Studio / Room 202',
+    activities: ['Morning assembly news broadcasts', 'Interviewing teachers & alumni', 'Publishing the "Emaudo Voice" wall journal', 'Photography coverage of sports'],
+    achievements: ['Continuous publication of the termly Emaudo Beacon Newsletter']
+  },
+  {
+    id: 'club-cultural',
+    name: 'Cultural & Heritage Troupe',
+    category: 'Arts',
+    description: 'Celebrates rich Esan, Edo, and Nigerian traditional dances, folklore, folk music, drama, and cultural costumes during school celebrations and inter-school festivals.',
+    coordinator: 'Mrs. F. Ighodalo',
+    meetingDay: 'Thursdays',
+    meetingTime: '2:15 PM – 3:30 PM',
+    venue: 'School Amphitheatre / Open Grounds',
+    activities: ['Traditional Esan dance choreography', 'Cultural drama presentations', 'Native language proverb quizzes', 'Costume & craft design'],
+    achievements: ['Grand performance at 2024 ESSOSA Homecoming Ceremony']
+  },
+  {
+    id: 'club-sports',
+    name: 'Sports & Athletics Society',
+    category: 'Sports',
+    description: 'Coordinates inter-house football tournaments, track and field training, table tennis, volleyball, and physical fitness conditioning.',
+    coordinator: 'Coach E. Friday',
+    meetingDay: 'Tuesdays & Fridays',
+    meetingTime: '3:00 PM – 4:30 PM',
+    venue: 'Emaudo Sports Grounds & Football Pitch',
+    activities: ['Sprint and relay drills', 'Football league fixtures', 'Table tennis competitions', 'Volleyball & handball training'],
+    achievements: ['Runners-up in Edo State Secondary Schools Football Cup']
+  },
+  {
+    id: 'club-prefects',
+    name: 'Prefects Council & Student Leadership',
+    category: 'Leadership',
+    description: 'Elected and appointed student leaders (Head Boy, Head Girl, Assembly Prefect, Chapel/Mosque Prefect, Health Prefect, Sports Prefect) representing student welfare and upholding discipline.',
+    coordinator: 'Vice Principal (Administration)',
+    meetingDay: 'Alternate Mondays',
+    meetingTime: '1:45 PM – 2:30 PM',
+    venue: 'Administrative Conference Room',
+    activities: ['Assembly coordination', 'Student welfare advocacy', 'Anti-bullying peer support', 'Campus cleanliness campaigns'],
+    achievements: ['Zero-tolerance discipline framework and peer mentorship network']
+  }
+];
+
+// ============================================================================
+// ACADEMIC ACTIVITIES & SCHOOL LIFE
+// ============================================================================
+export const SCHOOL_ACTIVITIES = [
+  {
+    id: 'act-waec',
+    title: 'WAEC / WASSCE & NECO SSCE Comprehensive Preparation',
+    category: 'WAEC/NECO Prep',
+    description: 'Intensive after-school coaching, syllabus coverage checkpoints, practical mock laboratory sessions, and 10-year past question analysis for SSS 3 students.',
+    frequency: 'Daily during Second & Third Terms',
+    targetAudience: 'SSS 3 & Private Candidates',
+    keyHighlights: ['Weekend mock practicals in Physics, Chemistry, Biology', 'Theory answering technique workshops', 'Examiner feedback sessions']
+  },
+  {
+    id: 'act-ca',
+    title: 'Continuous Assessment (CA) & Formative Testing',
+    category: 'Continuous Assessment',
+    description: 'Structured bi-weekly class tests, homework assignments, group presentations, and mid-term assessments accounting for 40% of the termly score.',
+    frequency: 'Continuous throughout 1st, 2nd, and 3rd Terms',
+    targetAudience: 'JSS 1 through SSS 3',
+    keyHighlights: ['CA 1 (15 Marks) + CA 2 (15 Marks) + Assignments/Punctuality (10 Marks)', 'Standardized grading rubrics', 'Instant feedback via Student Portal']
+  },
+  {
+    id: 'act-tutorials',
+    title: 'Remedial Tutorials & Extension Classes',
+    category: 'Tutorials',
+    description: 'Free targeted remedial classes for students needing additional guidance in Mathematics, English, Physics, and Chemistry.',
+    frequency: 'Mondays to Thursdays (2:30 PM – 4:00 PM)',
+    targetAudience: 'Identified students & aspiring distinctions',
+    keyHighlights: ['Small-group tutor ratio (1:15)', 'Foundation rebuilding in algebra and phonetics', 'Peer tutoring pairings']
+  },
+  {
+    id: 'act-competitions',
+    title: 'Inter-House Academic Quiz & State Olympiads',
+    category: 'Competitions',
+    description: 'Annual battle of wits among Green, Blue, Red, and Yellow Houses spanning science, humanities, current affairs, and spelling.',
+    frequency: 'Annual (Second Term)',
+    targetAudience: 'All classes across Junior & Senior sections',
+    keyHighlights: ['Live buzzer system', 'Trophies and academic scholarships awarded by ESSOSA alumni', 'Edo State competition team selection']
+  }
+];
+
+export const SCHOOL_LIFE_DETAILS = {
+  morningAssembly: {
+    title: 'Morning Assembly & Character Formation',
+    schedule: 'Mondays to Fridays: 7:45 AM – 8:15 AM (Prompt)',
+    order: [
+      '7:45 AM: Assembly Bell & Class Lining (Order of height and class arms)',
+      '7:50 AM: Opening Prayer & National Anthem / School Anthem',
+      '7:55 AM: National Pledge & Edo State Anthem',
+      '8:00 AM: Moral Instruction / Principal’s Address & Thought for the Day',
+      '8:10 AM: Press Club News Highlights & Urgent Announcements',
+      '8:15 AM: March to Classrooms to traditional marching band rhythm'
+    ],
+    schoolAnthem: `Great Emaudo, fountain of light and truth,
+Formed on Osimen Street to guide our youth.
+With knowledge, honour, and virtue bright,
+We strive for the peak, we walk in light.
+Ambrose Alli's vision lives today,
+Emaudo School leads the noble way!`
+  },
+  timetableSummary: {
+    dayStart: '7:45 AM',
+    assemblyEnd: '8:15 AM',
+    periodDuration: '40 Minutes per period',
+    periodsPerDay: 8,
+    breakTime: '11:35 AM – 12:15 PM (40 Minutes Long Break)',
+    closingTime: '2:00 PM (Regular) / 3:30 PM (Clubs & Tutorials)',
+    periods: [
+      { period: 'Assembly', time: '7:45 AM – 8:15 AM', activity: 'Devotion, Anthem, Moral Talk' },
+      { period: 'Period 1', time: '8:15 AM – 8:55 AM', activity: 'Core Subject 1' },
+      { period: 'Period 2', time: '8:55 AM – 9:35 AM', activity: 'Core Subject 2' },
+      { period: 'Period 3', time: '9:35 AM – 10:15 AM', activity: 'Subject 3' },
+      { period: 'Period 4', time: '10:15 AM – 10:55 AM', activity: 'Subject 4' },
+      { period: 'Short Break', time: '10:55 AM – 11:05 AM', activity: '10-minute Refreshment' },
+      { period: 'Period 5', time: '11:05 AM – 11:45 AM', activity: 'Laboratory Practical / Subject 5' },
+      { period: 'Long Break', time: '11:45 AM – 12:25 PM', activity: 'Lunch, Library & Recreation' },
+      { period: 'Period 6', time: '12:25 PM – 1:05 PM', activity: 'Subject 6' },
+      { period: 'Period 7', time: '1:05 PM – 1:45 PM', activity: 'Subject 7' },
+      { period: 'Period 8', time: '1:45 PM – 2:00 PM', activity: 'Class Teacher Form Period & Dismissal' },
+      { period: 'After School', time: '2:15 PM – 3:30 PM', activity: 'Clubs, Remedial Tutorials & Sports' }
+    ]
+  },
+  library: {
+    name: 'Emaudo Secondary School Central Library',
+    capacity: '120 seated students',
+    holdings: 'Over 8,500 volumes covering WAEC textbooks, encyclopedias, African literature, science journals, past examination papers, and digital e-books.',
+    hours: 'Monday – Friday: 8:00 AM to 4:00 PM',
+    librarian: 'Mrs. R. Agbonlahor (MLS)'
+  },
+  laboratories: {
+    scienceComplex: 'Ultra-Modern Science Laboratory Complex (Inaugurated 2017 with Chevron and partners)',
+    ictCentre: 'Digital ICT Laboratory with 45 network-connected workstations and CBT simulation engine',
+    technicalWorkshop: 'Introductory Technology & Technical Drawing Studio'
+  },
+  awardsAndAchievements: [
+    { year: '2024', title: 'Top 5 Science School in Edo Central Senatorial District (STAN Fair)' },
+    { year: '2023', title: '1st Place Winner in Esan Central Inter-School Debate League' },
+    { year: '2023', title: 'Over 88% Credit Pass Rate in WASSCE (WAEC) & NECO Examinations' },
+    { year: '2022', title: 'Edo State Secondary Schools Clean Green Campus Award' },
+    { year: '2017', title: 'Commissioning of Chevron Ultra-Modern Science Laboratory Complex' },
+    { year: '1986', title: 'Formal Elevation from Grade-Three to Grade-One Secondary School' },
+    { year: '1985', title: 'First Pioneer Graduating Class of Emaudo Secondary School' }
+  ]
+};
+
+// ============================================================================
+// MASTER CLASS TIMETABLE SAMPLES
+// ============================================================================
+export const SAMPLE_TIMETABLE_ENTRIES = [
+  // SSS 2 Science
+  { id: 'tt-1', day: 'Monday', period: 1, time: '8:15 AM - 8:55 AM', className: 'SSS 2 Science', subject: 'Mathematics', teacherName: 'Mr. A. Momodu', room: 'Room 201' },
+  { id: 'tt-2', day: 'Monday', period: 2, time: '8:55 AM - 9:35 AM', className: 'SSS 2 Science', subject: 'Physics', teacherName: 'Mr. C. Ebosele', room: 'Physics Lab' },
+  { id: 'tt-3', day: 'Monday', period: 3, time: '9:35 AM - 10:15 AM', className: 'SSS 2 Science', subject: 'English Language', teacherName: 'Mrs. B. Okojie', room: 'Room 201' },
+  { id: 'tt-4', day: 'Monday', period: 4, time: '10:15 AM - 10:55 AM', className: 'SSS 2 Science', subject: 'Chemistry', teacherName: 'Mr. C. Ebosele', room: 'Chemistry Lab' },
+  { id: 'tt-5', day: 'Monday', period: 5, time: '11:05 AM - 11:45 AM', className: 'SSS 2 Science', subject: 'Biology Practical', teacherName: 'Mrs. F. Ighodalo', room: 'Biology Lab' },
+  { id: 'tt-6', day: 'Monday', period: 6, time: '12:25 PM - 1:05 PM', className: 'SSS 2 Science', subject: 'Civic Education', teacherName: 'Mrs. F. Ighodalo', room: 'Room 201' },
+  { id: 'tt-7', day: 'Monday', period: 7, time: '1:05 PM - 1:45 PM', className: 'SSS 2 Science', subject: 'Computer Studies', teacherName: 'Engr. S. Osas', room: 'ICT Centre' },
+  // SSS 3 Arts
+  { id: 'tt-8', day: 'Tuesday', period: 1, time: '8:15 AM - 8:55 AM', className: 'SSS 3 Arts', subject: 'Literature-in-English', teacherName: 'Mrs. B. Okojie', room: 'Room 302' },
+  { id: 'tt-9', day: 'Tuesday', period: 2, time: '8:55 AM - 9:35 AM', className: 'SSS 3 Arts', subject: 'Government', teacherName: 'Mrs. F. Ighodalo', room: 'Room 302' },
+  { id: 'tt-10', day: 'Tuesday', period: 3, time: '9:35 AM - 10:15 AM', className: 'SSS 3 Arts', subject: 'General Mathematics', teacherName: 'Mr. A. Momodu', room: 'Room 302' },
+  { id: 'tt-11', day: 'Tuesday', period: 4, time: '10:15 AM - 10:55 AM', className: 'SSS 3 Arts', subject: 'Economics', teacherName: 'Mr. O. Imhansi', room: 'Room 302' },
+  { id: 'tt-12', day: 'Tuesday', period: 5, time: '11:05 AM - 11:45 AM', className: 'SSS 3 Arts', subject: 'CRS / IRS', teacherName: 'Pastor J. Ekhator', room: 'Room 302' },
+  // JSS 2A
+  { id: 'tt-13', day: 'Wednesday', period: 1, time: '8:15 AM - 8:55 AM', className: 'JSS 2A', subject: 'Mathematics', teacherName: 'Mr. A. Momodu', room: 'Room 102' },
+  { id: 'tt-14', day: 'Wednesday', period: 2, time: '8:55 AM - 9:35 AM', className: 'JSS 2A', subject: 'English Studies', teacherName: 'Mrs. B. Okojie', room: 'Room 102' },
+  { id: 'tt-15', day: 'Wednesday', period: 3, time: '9:35 AM - 10:15 AM', className: 'JSS 2A', subject: 'Basic Science', teacherName: 'Mr. C. Ebosele', room: 'Room 102' },
+  { id: 'tt-16', day: 'Wednesday', period: 4, time: '10:15 AM - 10:55 AM', className: 'JSS 2A', subject: 'Social Studies', teacherName: 'Mrs. F. Ighodalo', room: 'Room 102' },
+  { id: 'tt-17', day: 'Wednesday', period: 5, time: '11:05 AM - 11:45 AM', className: 'JSS 2A', subject: 'Computer Studies', teacherName: 'Engr. S. Osas', room: 'ICT Centre' },
+];
+

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   AlertCircle, 
   Calendar, 
@@ -9,10 +9,37 @@ import {
   Users 
 } from 'lucide-react';
 import { SAMPLE_EVENTS } from '../../constants/schoolData';
+import { supabase, isSupabaseConfigured, supabaseService } from '../../lib/supabase';
 import { SchoolEvent } from '../../types';
 
 export const EventsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [eventsList, setEventsList] = useState<SchoolEvent[]>(SAMPLE_EVENTS);
+
+  useEffect(() => {
+    async function loadEvents() {
+      if (isSupabaseConfigured && supabase) {
+        try {
+          const remote = await supabaseService.events.getAll();
+          if (remote && remote.length > 0) {
+            const mapped: SchoolEvent[] = remote.map((r: any) => ({
+              id: r.id,
+              title: r.title,
+              category: r.category || 'Academic Events',
+              schedule: r.event_date ? `${new Date(r.event_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}${r.start_time ? ' • ' + r.start_time : ''}` : 'Scheduled',
+              location: r.location || 'Emaudo Secondary School Campus',
+              description: r.description,
+              isSample: false,
+            }));
+            setEventsList([...mapped, ...SAMPLE_EVENTS.filter(s => !mapped.some(m => m.title === s.title))]);
+          }
+        } catch (err) {
+          console.warn('Supabase events load notice:', err);
+        }
+      }
+    }
+    loadEvents();
+  }, []);
 
   const categories = [
     'All',
@@ -25,8 +52,8 @@ export const EventsPage: React.FC = () => {
   ];
 
   const filteredEvents = selectedCategory === 'All'
-    ? SAMPLE_EVENTS
-    : SAMPLE_EVENTS.filter((e) => e.category === selectedCategory);
+    ? eventsList
+    : eventsList.filter((e) => e.category.toLowerCase().includes(selectedCategory.toLowerCase()) || selectedCategory.toLowerCase().includes(e.category.toLowerCase()));
 
   return (
     <div className="space-y-12">

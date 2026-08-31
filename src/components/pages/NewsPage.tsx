@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   AlertCircle, 
   Bell, 
@@ -13,16 +13,45 @@ import {
   Users 
 } from 'lucide-react';
 import { SAMPLE_NEWS, SCHOOL_INFO } from '../../constants/schoolData';
+import { supabase, isSupabaseConfigured, supabaseService } from '../../lib/supabase';
 import { NewsItem } from '../../types';
 
 export const NewsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activeArticle, setActiveArticle] = useState<NewsItem | null>(null);
+  const [newsList, setNewsList] = useState<NewsItem[]>(SAMPLE_NEWS);
+
+  useEffect(() => {
+    async function loadAnnouncements() {
+      if (isSupabaseConfigured && supabase) {
+        try {
+          const remote = await supabaseService.announcements.getAll();
+          if (remote && remote.length > 0) {
+            const mapped: NewsItem[] = remote.map((r: any) => ({
+              id: r.id,
+              title: r.title,
+              category: r.category || 'Announcements',
+              date: r.published_at ? new Date(r.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Recent',
+              summary: r.summary || (r.content ? r.content.slice(0, 140) + '...' : ''),
+              content: r.content,
+              isSample: false,
+            }));
+            // Combine with default sample news so the page is always richly populated
+            setNewsList([...mapped, ...SAMPLE_NEWS.filter(s => !mapped.some(m => m.title === s.title))]);
+          }
+        } catch (err) {
+          console.warn('Supabase announcements load notice:', err);
+        }
+      }
+    }
+    loadAnnouncements();
+  }, []);
 
   const categories = [
     'All',
     'School News',
     'Academic',
+    'Sciences',
     'Events',
     'Announcements',
     'Alumni',
@@ -31,8 +60,8 @@ export const NewsPage: React.FC = () => {
   ];
 
   const filteredNews = selectedCategory === 'All'
-    ? SAMPLE_NEWS
-    : SAMPLE_NEWS.filter((n) => n.category === selectedCategory);
+    ? newsList
+    : newsList.filter((n) => n.category.toLowerCase().includes(selectedCategory.toLowerCase()) || selectedCategory.toLowerCase().includes(n.category.toLowerCase()));
 
   return (
     <div className="space-y-12">

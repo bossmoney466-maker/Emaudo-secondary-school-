@@ -79,6 +79,52 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
+      {/* Official School Seal & Heraldic Identity */}
+      <section className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-10 shadow-sm">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-4 flex flex-col items-center text-center p-6 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <SchoolCrest size="xl" variant="gold" imageOnly className="shadow-lg" />
+            <span className="font-serif font-black text-sm text-slate-900 uppercase tracking-wider mt-4">
+              Official School Badge
+            </span>
+            <span className="text-xs font-bold text-amber-700 uppercase">
+              Ekpoma, Edo State • Est. 1980
+            </span>
+          </div>
+
+          <div className="lg:col-span-8 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider border border-emerald-200">
+              <Award className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Official Institutional Badge & Motto</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              The Heraldry of Emaudo Senior Secondary School
+            </h2>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              The official uniform crest of <strong>Emaudo Senior Secondary School, Ekpoma</strong> carries the identity and founding motto of our institution:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-1">
+              <div className="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200">
+                <strong className="text-emerald-950 block mb-0.5 font-bold">School Motto</strong>
+                <span className="text-emerald-800 font-semibold italic">"SUCCESS THROUGH EDUCATION"</span> — our guiding light toward self-reliance and academic triumph.
+              </div>
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <strong className="text-slate-900 block mb-0.5 font-bold">The E-S-S-S Monogram</strong>
+                <span className="text-slate-600">The four cardinal letters framing the diamond represent Emaudo Senior Secondary School.</span>
+              </div>
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <strong className="text-slate-900 block mb-0.5 font-bold">Central Diamond & Book</strong>
+                <span className="text-slate-600">The emerald diamond and open book symbolize literacy, knowledge, and moral fortitude.</span>
+              </div>
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <strong className="text-slate-900 block mb-0.5 font-bold">Institutional Emerald Green</strong>
+                <span className="text-slate-600">Reflecting vital growth, prosperity, and the educational legacy of Ekpoma, Edo State.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Founder Spotlight */}
       <FounderSection onExploreHistory={() => onNavigate('history')} />
 

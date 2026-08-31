@@ -8,9 +8,16 @@ import {
   Phone, 
   Send, 
   Sparkles, 
-  X 
+  X,
+  BookOpen,
+  GraduationCap,
+  FlaskConical,
+  Landmark,
+  Layers,
+  HelpCircle
 } from 'lucide-react';
 import { SCHOOL_INFO } from '../../constants/schoolData';
+import { SCHOOL_CONTACT } from '../../constants/contactInfo';
 
 interface ChatMessage {
   id: string;
@@ -27,7 +34,7 @@ export const EmaudoAiAssistant: React.FC = () => {
     {
       id: 'welcome',
       sender: 'ai',
-      text: "Welcome to **Emaudo Secondary School, Ekpoma**! 🎓\n\nI am your interactive AI School Guide. You can ask me about:\n• School History & Founder (Prof. Ambrose Alli)\n• Academic Curriculum (Junior & Senior Secondary)\n• Science Laboratory Complex (2017 Chevron Project)\n• ESSOSA Alumni Network\n• Official Contact Channels (WhatsApp & Direct Call)",
+      text: "Welcome to **Emaudo Secondary School, Ekpoma**! 🎓\n\nI am your interactive **AI School Guide & Academic Assistant**. How can I help you today?\n\n• **School History & Founder**: Prof. Ambrose Alli (Est. 1980)\n• **Academics & Subjects**: Mathematics, English, Sciences, Commercial\n• **2017 Science Lab Complex**: Chevron-supported modern facility\n• **Clubs & Activities**: Sports, JETS, Debate, Chess, Cultural\n• **Admissions & Portal**: Enquiries & login access\n• **Official WhatsApp Desk**: Instant contact with administration",
       timestamp: 'Just now',
     },
   ]);
@@ -35,11 +42,12 @@ export const EmaudoAiAssistant: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const suggestedQuestions = [
-    "Who is the founder of Emaudo Secondary School?",
-    "How can I contact the school on WhatsApp?",
-    "Tell me about the 2017 Science Laboratory",
-    "Where is the school located in Ekpoma?",
-    "How do I join the ESSOSA Alumni Association?",
+    { label: "Founder & History", query: "Who founded Emaudo Secondary School and when?" },
+    { label: "2017 Science Lab", query: "Tell me about the ultra-modern Science Laboratory complex" },
+    { label: "Core Subjects", query: "What subjects are taught in Junior and Senior Secondary?" },
+    { label: "Clubs & Sports", query: "What extracurricular activities and clubs are available?" },
+    { label: "Admissions Process", query: "How do I apply for admission at Emaudo Secondary School?" },
+    { label: "WhatsApp Desk", query: "How do I chat with the admissions office on WhatsApp?" },
   ];
 
   const scrollToBottom = () => {
@@ -82,16 +90,16 @@ export const EmaudoAiAssistant: React.FC = () => {
       const aiReply: ChatMessage = {
         id: `ai-${Date.now()}`,
         sender: 'ai',
-        text: data.reply || "Thank you for your enquiry. For official administrative matters, please reach out via WhatsApp at +234 813 911 1765 or call 07018543531.",
+        text: data.reply || `Thank you for your enquiry. For official administrative queries, please contact the administrative desk via WhatsApp at ${SCHOOL_CONTACT.whatsappDisplay}.`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
       setMessages((prev) => [...prev, aiReply]);
     } catch (err) {
-      // Grounded fallback
+      // Grounded verified fallback
       const fallbackReply: ChatMessage = {
         id: `ai-fallback-${Date.now()}`,
         sender: 'ai',
-        text: `Emaudo Secondary School was established in 1980 by Professor Ambrose Folorunsho Alli at 178 Osimen Street, Emaudo, Ekpoma, Edo State.\n\nOfficial Contacts:\n💬 WhatsApp: ${SCHOOL_INFO.whatsappDisplay}\n📞 Direct Call: ${SCHOOL_INFO.phoneDisplay}\n🌐 Alumni Portal: https://emaudooldstudents.org/`,
+        text: `**Emaudo Secondary School, Ekpoma** was founded in 1980 by **Professor Ambrose Folorunsho Alli** (Governor of Bendel State) at 178 Osimen Street, Emaudo, Ekpoma, Edo State.\n\nKey Highlights:\n• **Chevron Science Complex**: Commissioned in 2017 with dedicated Physics, Chemistry & Biology laboratories.\n• **Curriculum**: WAEC, NECO & BECE certified across Science, Arts & Commercial disciplines.\n• **WhatsApp Direct**: ${SCHOOL_CONTACT.whatsappDisplay}\n• **Phone Call**: ${SCHOOL_CONTACT.phoneDisplay}\n• **ESSOSA Alumni**: https://emaudooldstudents.org/`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
       setMessages((prev) => [...prev, fallbackReply]);
@@ -102,21 +110,25 @@ export const EmaudoAiAssistant: React.FC = () => {
 
   return (
     <>
-      {/* Floating Toggle Button */}
+      {/* Floating Toggle Button with Glowing Emerald & Gold Pulse */}
       <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-40">
         {!isOpen && (
           <button
             onClick={() => setIsOpen(true)}
             id="btn-open-ai-assistant"
-            className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-blue-950 via-slate-900 to-blue-900 text-white shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-amber-400/40 cursor-pointer group"
+            className="flex items-center gap-3 px-4 py-3 rounded-full bg-gradient-to-r from-emerald-950 via-slate-950 to-emerald-900 text-white shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-amber-400/60 cursor-pointer group hover:shadow-amber-500/20"
             aria-label="Open Emaudo AI Assistant"
           >
-            <div className="w-8 h-8 rounded-full bg-amber-400/20 flex items-center justify-center text-amber-400 group-hover:rotate-12 transition-transform">
-              <Bot className="w-5 h-5" />
+            <div className="relative">
+              <div className="w-8 h-8 rounded-full bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-amber-400 group-hover:rotate-12 transition-transform">
+                <Bot className="w-5 h-5" />
+              </div>
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping" />
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full" />
             </div>
             <div className="text-left hidden sm:block">
-              <div className="text-xs font-bold leading-none text-white">Emaudo AI</div>
-              <div className="text-[10px] text-amber-300 leading-tight">School Assistant</div>
+              <div className="text-xs font-black leading-none text-white tracking-wide">AI School Guide</div>
+              <div className="text-[10px] text-amber-300 font-semibold leading-tight mt-0.5">Emaudo Smart Assistant</div>
             </div>
           </button>
         )}
@@ -126,27 +138,27 @@ export const EmaudoAiAssistant: React.FC = () => {
       {isOpen && (
         <div 
           id="emaudo-ai-assistant-modal"
-          className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 w-[92vw] sm:w-[420px] max-h-[580px] h-[78vh] bg-white rounded-3xl shadow-2xl border border-slate-300 flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-200"
+          className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 w-[92vw] sm:w-[430px] max-h-[600px] h-[80vh] bg-white rounded-3xl shadow-2xl border-2 border-emerald-800/40 flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-200"
         >
-          {/* Modal Header */}
-          <div className="bg-slate-950 text-white p-4 flex items-center justify-between border-b border-slate-800">
+          {/* Modal Header: Deep Emerald & Gold Accents */}
+          <div className="bg-gradient-to-r from-emerald-950 via-slate-950 to-emerald-950 text-white p-4 flex items-center justify-between border-b border-emerald-800/50">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400">
+              <div className="w-9 h-9 rounded-2xl bg-amber-400/20 border border-amber-400/50 flex items-center justify-center text-amber-400">
                 <Bot className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-extrabold text-sm text-white flex items-center gap-1.5">
-                  <span>Emaudo AI Guide</span>
+                <h3 className="font-serif font-black text-sm text-white flex items-center gap-2">
+                  <span>Emaudo AI School Guide</span>
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 </h3>
-                <p className="text-[11px] text-slate-300">Grounded School Information</p>
+                <p className="text-[10px] text-amber-300 font-medium">Grounded Knowledge • Est. 1980</p>
               </div>
             </div>
 
             <button
               id="btn-close-ai-assistant"
               onClick={() => setIsOpen(false)}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className="p-1.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -162,8 +174,8 @@ export const EmaudoAiAssistant: React.FC = () => {
                 <div
                   className={`max-w-[85%] p-3.5 rounded-2xl ${
                     msg.sender === 'user'
-                      ? 'bg-blue-900 text-white rounded-tr-none shadow'
-                      : 'bg-white text-slate-800 rounded-tl-none border border-slate-200 shadow-sm'
+                      ? 'bg-emerald-900 text-white rounded-tr-none shadow-md'
+                      : 'bg-white text-slate-800 rounded-tl-none border border-slate-200/90 shadow-sm'
                   }`}
                 >
                   <p className="whitespace-pre-wrap">{msg.text}</p>
@@ -173,7 +185,7 @@ export const EmaudoAiAssistant: React.FC = () => {
             ))}
 
             {isLoading && (
-              <div className="flex items-center gap-2 text-slate-500 bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 w-fit">
+              <div className="flex items-center gap-2 text-slate-600 bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 w-fit">
                 <Sparkles className="w-4 h-4 text-amber-500 animate-spin" />
                 <span className="text-xs">Consulting Emaudo knowledge base...</span>
               </div>
@@ -182,15 +194,15 @@ export const EmaudoAiAssistant: React.FC = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Suggested Quick Prompts */}
+          {/* Quick Suggested Prompt Chips */}
           <div className="p-2.5 bg-slate-100 border-t border-slate-200 flex items-center gap-1.5 overflow-x-auto scrollbar-thin">
             {suggestedQuestions.map((q, idx) => (
               <button
                 key={idx}
-                onClick={() => handleSendMessage(q)}
-                className="px-2.5 py-1 rounded-full bg-white text-slate-700 hover:bg-amber-50 hover:text-blue-900 border border-slate-200 text-[11px] font-medium whitespace-nowrap transition-colors cursor-pointer shrink-0"
+                onClick={() => handleSendMessage(q.query)}
+                className="px-3 py-1 rounded-full bg-white text-slate-700 hover:bg-emerald-50 hover:text-emerald-900 hover:border-emerald-300 border border-slate-200 text-[11px] font-bold whitespace-nowrap transition-colors cursor-pointer shrink-0"
               >
-                {q}
+                {q.label}
               </button>
             ))}
           </div>
@@ -209,14 +221,14 @@ export const EmaudoAiAssistant: React.FC = () => {
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
-                placeholder="Ask about history, founder, admissions..."
-                className="flex-1 text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-900 focus:outline-none"
+                placeholder="Ask about founder, 2017 lab, subjects, sports..."
+                className="flex-1 text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-emerald-700 focus:outline-none"
               />
               <button
                 id="btn-send-ai-message"
                 type="submit"
                 disabled={isLoading || !inputMessage.trim()}
-                className="p-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white disabled:opacity-40 transition-colors cursor-pointer"
+                className="p-2.5 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-white disabled:opacity-40 transition-colors cursor-pointer shadow-sm"
               >
                 <Send className="w-4 h-4 text-amber-400" />
               </button>

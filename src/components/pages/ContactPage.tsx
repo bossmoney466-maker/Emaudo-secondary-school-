@@ -157,7 +157,7 @@ export const ContactPage: React.FC = () => {
             href={SCHOOL_INFO.phoneTel}
             className="inline-flex items-center gap-1 text-xs font-bold text-blue-900 hover:text-blue-700 pt-1"
           >
-            Call 07018543531 →
+            Call {SCHOOL_INFO.phoneDisplay} →
           </a>
         </div>
 

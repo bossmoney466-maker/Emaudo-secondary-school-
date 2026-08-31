@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" width="100%" height="100%">
+  <defs>
+    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#022c22" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Shield -->
+  <g filter="url(#badgeShadow)">
+    <!-- Shield Background -->
+    <path d="M 25 20 L 175 20 C 182 20 188 26 188 33 L 188 115 C 188 165 100 200 100 200 C 100 200 12 165 12 115 L 12 33 C 12 26 18 20 25 20 Z" 
+          fill="#FFFFFF" 
+          stroke="#047857" 
+          stroke-width="5" />
+
+    <!-- Inner Shield Border -->
+    <path d="M 30 25 L 170 25 C 175 25 180 30 180 35 L 180 113 C 180 157 100 190 100 190 C 100 190 20 157 20 113 L 20 35 C 20 30 25 25 30 25 Z" 
+          fill="none" 
+          stroke="#065f46" 
+          stroke-width="1.8" />
+  </g>
+
+  <!-- School Header Inscription -->
+  <text x="100" y="46" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="900" fill="#047857" text-anchor="middle" letter-spacing="1.2">
+    EMAUDO SENIOR
+  </text>
+  <text x="100" y="61" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="900" fill="#047857" text-anchor="middle" letter-spacing="1.5">
+    SEC. SCH. EKPOMA
+  </text>
+
+  <!-- Horizontal divider under header -->
+  <line x1="28" y1="67" x2="172" y2="67" stroke="#047857" stroke-width="1.5" stroke-dasharray="3,2" />
+
+  <!-- The 4 Acronym Letters: E S S S -->
+  <!-- Top: E -->
+  <text x="100" y="85" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="900" fill="#047857" text-anchor="middle">
+    E
+  </text>
+  <!-- Left: S -->
+  <text x="52" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="900" fill="#047857" text-anchor="middle">
+    S
+  </text>
+  <!-- Right: S -->
+  <text x="148" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="900" fill="#047857" text-anchor="middle">
+    S
+  </text>
+  <!-- Bottom: S -->
+  <text x="100" y="157" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="900" fill="#047857" text-anchor="middle">
+    S
+  </text>
+
+  <!-- Center Diamond (Rhombus) -->
+  <polygon points="100,88 134,117 100,146 66,117" fill="#047857" stroke="#065f46" stroke-width="2" />
+  <polygon points="100,92 130,117 100,142 70,117" fill="none" stroke="#A7F3D0" stroke-width="1" />
+
+  <!-- Center Open Book Symbol in Diamond (White) -->
+  <g fill="#FFFFFF" transform="translate(100, 117) scale(0.9)">
+    <!-- Left Page -->
+    <path d="M -16 -6 C -10 -8 -4 -5 0 -3 L 0 8 C -4 6 -10 3 -16 5 Z" fill="#FFFFFF" stroke="#047857" stroke-width="0.8"/>
+    <!-- Right Page -->
+    <path d="M 16 -6 C 10 -8 4 -5 0 -3 L 0 8 C 4 6 10 3 16 5 Z" fill="#FFFFFF" stroke="#047857" stroke-width="0.8"/>
+    <!-- Center Spine -->
+    <line x1="0" y1="-3" x2="0" y2="9" stroke="#047857" stroke-width="1.2"/>
+    <!-- Page Lines -->
+    <line x1="-12" y1="-2" x2="-4" y2="-1" stroke="#047857" stroke-width="0.7"/>
+    <line x1="-12" y1="1" x2="-4" y2="2" stroke="#047857" stroke-width="0.7"/>
+    <line x1="4" y1="-1" x2="12" y2="-2" stroke="#047857" stroke-width="0.7"/>
+    <line x1="4" y1="2" x2="12" y2="1" stroke="#047857" stroke-width="0.7"/>
+  </g>
+
+  <!-- Bottom Ribbon Banner -->
+  <g transform="translate(0, 168)">
+    <!-- Ribbon Tails -->
+    <path d="M 16 22 L 5 35 L 28 32 Z" fill="#065f46" stroke="#047857" stroke-width="1.5" />
+    <path d="M 184 22 L 195 35 L 172 32 Z" fill="#065f46" stroke="#047857" stroke-width="1.5" />
+
+    <!-- Ribbon Fold Backs -->
+    <path d="M 22 22 L 28 32 L 28 22 Z" fill="#022c22" />
+    <path d="M 178 22 L 172 32 L 172 22 Z" fill="#022c22" />
+
+    <!-- Main Ribbon Body -->
+    <path d="M 20 22 C 60 12 140 12 180 22 L 175 38 C 135 28 65 28 25 38 Z" 
+          fill="#FFFFFF" 
+          stroke="#047857" 
+          stroke-width="2.5" />
+
+    <!-- Motto Text on Ribbon -->
+    <text font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="900" fill="#047857" text-anchor="middle" letter-spacing="1">
+      <textPath href="#mottoCurve" startOffset="50%">
+        SUCCESS THROUGH EDUCATION
+      </textPath>
+    </text>
+    <path id="mottoCurve" d="M 25 33 C 65 23 135 23 175 33" fill="none" />
+  </g>
+</svg>

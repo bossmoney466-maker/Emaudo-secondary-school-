@@ -12,8 +12,8 @@ export const SCHOOL_CONTACT: SchoolContactInfo = {
   whatsappRaw: '2348139111765',
   whatsappMessage: 'Hello Emaudo Secondary School, I would like to make an enquiry.',
   whatsappUrl: 'https://wa.me/2348139111765?text=' + encodeURIComponent('Hello Emaudo Secondary School, I would like to make an enquiry.'),
-  phoneDisplay: '07018543531',
-  phoneTel: 'tel:07018543531',
+  phoneDisplay: '+234 813 911 1765',
+  phoneTel: 'tel:+2348139111765',
   email: '[EMAIL ADDRESS]',
 };
 
